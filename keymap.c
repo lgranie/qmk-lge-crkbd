@@ -18,13 +18,25 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 
-#define _QWERTY 0
-#define _COLEMAKDHM 2
+#define _COLEMAKDHM 0
+#define _QWERTY 2
 #define _SYMBOLS 4
 #define _NAVIGATION 8
 #define _ADDONS 16
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+  [_COLEMAKDHM] = LAYOUT_split_3x6_3( 
+  //,-----------------------------------------------------------.                    ,-----------------------------------------------------.
+             KC_ESC,    KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                         KC_J,    KC_L,    KC_U,    KC_Y, KC_SCLN, KC_BSPC,
+  //|--------------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+     LSFT_T(KC_TAB),    KC_A,    KC_R,    KC_S,    KC_T,    KC_G,                         KC_M,    KC_N,    KC_E,    KC_I,    KC_O, KC_ENT,
+  //|--------------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+            KC_LCTL,    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H, KC_COMM,  KC_DOT, KC_SLSH, KC_RSFT,
+  //|--------------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+                                   KC_LGUI, KC_LALT, LT(_SYMBOLS, KC_SPC),  LT(_NAVIGATION, KC_SPC), KC_RALT, KC_RGUI
+                                   //`-----------------------------------'  `---------------------------------------'
+  ),
+
   [_QWERTY] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------------.                    ,-----------------------------------------------------.
              KC_ESC,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_BSPC,
@@ -36,18 +48,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                    KC_LGUI, KC_LALT, LT(_SYMBOLS, KC_SPC),  LT(_NAVIGATION, KC_SPC), KC_RALT, KC_RGUI
                                    //`-----------------------------------'  `---------------------------------------'
 
-  ),
-
-  [_COLEMAKDHM] = LAYOUT_split_3x6_3( 
-  //,-----------------------------------------------------------.                    ,-----------------------------------------------------.
-             KC_ESC,    KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                         KC_J,    KC_L,    KC_U,    KC_Y, KC_SCLN, KC_BSPC,
-  //|--------------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     LSFT_T(KC_TAB),    KC_A,    KC_R,    KC_S,    KC_T,    KC_G,                         KC_M,    KC_N,    KC_E,    KC_I,    KC_O, KC_ENT,
-  //|--------------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-            KC_LCTL,    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H, KC_COMM,  KC_DOT, KC_SLSH, KC_RSFT,
-  //|--------------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                   KC_LGUI, KC_LALT, LT(_SYMBOLS, KC_SPC),  LT(_NAVIGATION, KC_SPC), KC_RALT, KC_RGUI
-                                   //`-----------------------------------'  `---------------------------------------'
   ),
 
   [_SYMBOLS] = LAYOUT_split_3x6_3(
@@ -100,11 +100,11 @@ void oled_render_layer_state(void) {
     switch (biton32(layer_state)) {
         case 0:
           switch (biton32(default_layer_state)) {
-            case _QWERTY:
-              oled_write_ln_P(PSTR("Qwerty"), false);
-              break;
             case _COLEMAKDHM:
               oled_write_ln_P(PSTR("Colemakdh"), false);
+              break;
+            case _QWERTY:
+              oled_write_ln_P(PSTR("Qwerty"), false);
               break;
           }
           break;
