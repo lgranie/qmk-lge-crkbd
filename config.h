@@ -23,9 +23,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define USE_MATRIX_I2C
 
 /* Select hand configuration */
-
-// #define MASTER_LEFT
-#define MASTER_RIGHT
+#define MASTER_LEFT
+// #define MASTER_RIGHT
 // #define EE_HANDS
 
 #define USE_SERIAL_PD2
@@ -34,17 +33,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAPPING_TERM 200
 
 #ifdef RGBLIGHT_ENABLE
-    #undef RGBLED_NUM
-    //#define RGBLIGHT_ANIMATIONS
-    #define RGBLIGHT_MODE_BREATHING
-    #define RGBLIGHT_EFFECT_RAINBOW_SWIRL
-    #define RGBLED_NUM 27
-    #define RGBLIGHT_LIMIT_VAL 120
-    #define RGBLIGHT_HUE_STEP 10
-    #define RGBLIGHT_SAT_STEP 17
-    #define RGBLIGHT_VAL_STEP 17
-    #define RGBLIGHT_SLEEP
-    #define RGBLIGHT_SPLIT
+  //#define RGBLIGHT_ANIMATIONS
+  #define RGBLIGHT_MODE_BREATHING
+  #define RGBLIGHT_EFFECT_RAINBOW_SWIRL
 #endif
 
 #define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"
