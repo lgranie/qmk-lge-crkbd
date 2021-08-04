@@ -34,8 +34,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #ifdef RGBLIGHT_ENABLE
   //#define RGBLIGHT_ANIMATIONS
+  #undef RGBLIGHT_ANIMATIONS
   #define RGBLIGHT_MODE_BREATHING
-  #define RGBLIGHT_EFFECT_RAINBOW_SWIRL
 #endif
 
 #define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"
