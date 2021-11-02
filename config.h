@@ -29,8 +29,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define USE_SERIAL_PD2
 
+#define IGNORE_MOD_TAP_INTERRUPT
 #define TAPPING_FORCE_HOLD
-#define TAPPING_TERM 200
+#undef TAPPING_TERM
+#define TAPPING_TERM 240
+#define RETRO_TAPPING
+
+#define ONESHOT_TAP_TOGGLE 1
+#define ONESHOT_TIMEOUT 1000
 
 #ifdef RGBLIGHT_ENABLE
   //#define RGBLIGHT_ANIMATIONS
