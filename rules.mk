@@ -4,6 +4,7 @@ EXTRAKEY_ENABLE = no       # Audio control and System control
 TAP_DANCE_ENABLE = no
 
 OLED_ENABLE = yes
-OLED_DRIVER = SSD1306
-RGBLIGHT_ENABLE   = yes       # Enable WS2812 RGB underlight.
-RGB_MATRIX_ENABLE = no
+#OLED_DRIVER = SSD1306
+
+RGBLIGHT_ENABLE = no
+RGB_MATRIX_ENABLE = yes
