@@ -38,10 +38,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define ONESHOT_TAP_TOGGLE 1
 #define ONESHOT_TIMEOUT 1000
 
-#ifdef RGBLIGHT_ENABLE
-  //#define RGBLIGHT_ANIMATIONS
-  #undef RGBLIGHT_ANIMATIONS
-  #define RGBLIGHT_MODE_BREATHING
+#ifdef RGB_MATRIX_ENABLE
+#   define RGB_MATRIX_KEYPRESSES // reacts to keypresses
+#   define RGB_DISABLE_WHEN_USB_SUSPENDED // turn off effects when suspended
+#   define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTINEXUS
 #endif
 
 #define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"
