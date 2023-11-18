@@ -3,6 +3,8 @@ EXTRAKEY_ENABLE = no    # Audio control and System control
 
 TAP_DANCE_ENABLE = no
 
+CAPS_WORD_ENABLE = yes
+
 OLED_ENABLE = yes
 #OLED_DRIVER = SSD1306
 
